@@ -13,4 +13,10 @@ class Project extends Model
 
     protected $guarded = ["id"];
 
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
+    }
+
 }

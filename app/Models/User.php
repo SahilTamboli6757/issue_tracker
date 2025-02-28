@@ -42,4 +42,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function assginedIssues()
+    {
+        return $this->hasMany(Issue::class,'assigned_to','id');
+    }
+
+    public function assginedByIssues()
+    {
+        return $this->hasMany(Issue::class,'assigned_to','id');
+    }
+
+    public function reportedIssues()
+    {
+        return $this->hasMany(Issue::class,'assigned_to','id');
+    }
+    public function raisedIssues()
+    {
+        return $this->hasMany(Issue::class,'assigned_to','id');
+    }
 }

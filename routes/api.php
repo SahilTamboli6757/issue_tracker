@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
@@ -13,3 +14,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::resource('projects',ProjectController::class);
 
 Route::resource('teams',TeamController::class);
+
+Route::resource('issues',IssueController::class);

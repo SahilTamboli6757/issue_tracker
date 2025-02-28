@@ -29,6 +29,10 @@ class Issue extends Model
         });
     }
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class,'creator_id', 'id');
+    }
 
     public function assignedTo()
     {

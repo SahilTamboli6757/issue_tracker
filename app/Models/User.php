@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsTo(Team::class);
     }
 
+    public function issues()
+    {
+        return $this->hasMany(Issue::class,'creator_id','id');
+    }
+
     public function assginedIssues()
     {
         return $this->hasMany(Issue::class,'assigned_to','id');

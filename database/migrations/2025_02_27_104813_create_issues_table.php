@@ -33,6 +33,9 @@ return new class extends Migration
             $table->unsignedBigInteger('raised_by');
             $table->foreign('raised_by')->references('id')->on('users');
 
+            $table->unsignedBigInteger('creator_id');
+            $table->foreign('creator_id')->references('id')->on('users');
+
             $table->timestamps();
             $table->softDeletes();
         });

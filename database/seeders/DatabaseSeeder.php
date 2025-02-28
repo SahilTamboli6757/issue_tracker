@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Issue;
 use App\Models\Project;
 use App\Models\Team;
 use App\Models\User;
@@ -20,5 +21,7 @@ class DatabaseSeeder extends Seeder
         Team::factory(10)->create();
 
         User::factory(15)->create();
+
+        Issue::factory(30)->create();
     }
 }

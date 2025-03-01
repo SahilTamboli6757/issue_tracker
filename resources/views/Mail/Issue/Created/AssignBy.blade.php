@@ -1,19 +1,24 @@
 <h1>New Issue Assigned to You</h1>
 
-Hello {{ $assignBy }},
+Hello {{ $assignBy }},<br>
 
-You had  assigned a new issue. Here are the details:
-QUEUE_CONNECTION
-<b> Issue Title</b>: {{ $issueTitle }}
+<p>
+You had  assigned a new issue.
+ <br>
+ Here are the details: <br>
 
-<b>Assigned To</b>: {{ $assignTo }}
+<b> Issue Title</b>: {{ $issueTitle }} <br>
 
-<b>Raised By</b>: {{ $raisedBy }}
+<b>Assigned To</b>: {{ $assignTo }}<br>
 
-Please take a moment to review the issue and address it accordingly.
+<b>Raised By</b>: {{ $raisedBy }}<br>
 
+Please take a moment to review the issue and address it accordingly.<br>
+
+<br>
 Thank you,<br>
 {{ config('app.name') }}
+</p>
 
 
 

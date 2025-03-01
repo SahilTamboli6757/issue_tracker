@@ -19,7 +19,8 @@ class Issue extends Model
     {
         parent::booted();
 
-        static::creating(function ($issue) {
+        static::created(function ($issue) {
+
             event(new IssueCreated($issue));
         });
 

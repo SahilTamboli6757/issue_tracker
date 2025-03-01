@@ -3,8 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\IssueCreated;
+use App\Mail\Issue\Created\IssueCreatedAssignByEmail;
 use App\Models\Issue;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class SendIssueCreatedNotification
 {
@@ -22,6 +24,9 @@ class SendIssueCreatedNotification
      */
     public function handle(IssueCreated $event): void
     {
+
+        $issue = Issue::find($event->issue->id);
+
         // if($this->issues->creator->id == $event->issue->assignedTo->id) {
         //      Mail::to($event->issue->assignedBy->email)->send()
 
@@ -30,29 +35,14 @@ class SendIssueCreatedNotification
         // } else if($this->issues->creator->id == $event->issue->raisedBy->id){
 
         // }
-        // $issue = Issue::find( $event->issue->id);
 
-         Log::info("issue",[
-            "id" => $event->issue["id"],
-
-         ]);
-        // Log::info("data",
-        //   [
-        //     "data" =>[
-        //         "issueTitle" => $issue->title,
-        //         "assignBy" => $issue->assigned_by->name,
-        //         "assignTo" => $issue->assigned_to->name,
-        //         "raisedBy" => $issue->raisedBy->name
-        //     ]
-        //   ]);
-
-        // Mail::to($event->issue->assignedBy->email)->queue(
-        //     new IssueCreatedAssignByEmail(
-        //         issueTitle: $issue->title,
-        //         assignBy: $issue->assigned_by->name,
-        //         assignTo: $issue->assigned_to->name,
-        //         raisedBy: $issue->raisedBy->name
-        //     )
-        // );
+        Mail::to($event->issue->assignedBy->email)->queue(
+            new IssueCreatedAssignByEmail(
+                issueTitle: $issue->title,
+                assignBy: $issue->assignedBy->name,
+                assignTo: $issue->assignedTo->name,
+                raisedBy: $issue->raisedBy->name
+            )
+        );
     }
 }

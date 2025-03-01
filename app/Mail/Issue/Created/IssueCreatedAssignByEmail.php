@@ -21,7 +21,7 @@ class IssueCreatedAssignByEmail extends Mailable
      * @param string $assignTo,
      * @param string $raisedBy
      */
-    public function __construct(string $issueTitle, string $assignBy, string $assignTo, string $raisedBy)
+    public function __construct(public string $issueTitle, public string $assignBy, public string $assignTo, public string $raisedBy)
     {
 
     }

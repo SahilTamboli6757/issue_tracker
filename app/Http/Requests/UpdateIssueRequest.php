@@ -32,6 +32,7 @@ class UpdateIssueRequest extends FormRequest
             'assigned_by'   => 'required|integer|exists:users,id',
             'reported_to'   => 'required|integer|exists:users,id',
             'raised_by'     => 'required|integer|exists:users,id',
+            'creator_id'    => 'required|integer|exists:users,id',
         ];
     }
 }

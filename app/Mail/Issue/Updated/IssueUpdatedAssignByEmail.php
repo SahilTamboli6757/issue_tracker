@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace App\Mail\Issue\Updated;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendIssueCreatedEmail extends Mailable
+class IssueUpdatedAssignByEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +27,7 @@ class SendIssueCreatedEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Issue Created Email',
+            subject: 'Issue Updated Assign By Email',
         );
     }
 
@@ -37,7 +37,7 @@ class SendIssueCreatedEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'Email.Issues.created',
+            view: 'view.name',
         );
     }
 
